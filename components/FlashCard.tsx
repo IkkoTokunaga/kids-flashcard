@@ -17,33 +17,39 @@ export function FlashCard({ card, revealed, onReveal }: Props) {
       aria-pressed={revealed}
       aria-label={revealed ? `こたえ: ${card.name}` : "えをタップしてこたえる"}
       className={[
-        "relative flex aspect-square w-full max-w-[22rem] select-none flex-col items-center justify-center",
-        "rounded-[2rem] bg-white shadow-xl shadow-orange-200/60",
-        "ring-4 ring-orange-200",
-        "transition-transform active:scale-[0.98]",
+        "group relative aspect-square w-full max-w-[22rem] select-none [perspective:1200px]",
         "focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-4 focus-visible:outline-orange-400",
       ].join(" ")}
     >
-      <div className="flex h-full w-full items-center justify-center p-6">
-        <Image
-          src={getCardImagePath(card)}
-          alt=""
-          width={256}
-          height={256}
-          priority
-          unoptimized
-          className="h-full w-full object-contain"
-        />
-      </div>
+      <div
+        className={[
+          "relative h-full w-full rounded-[2rem] ring-4 ring-orange-200",
+          "shadow-xl shadow-orange-200/60 transition-transform duration-500",
+          "active:scale-[0.98] [transform-style:preserve-3d]",
+          revealed ? "[transform:rotateY(180deg)]" : "",
+        ].join(" ")}
+      >
+        <div className="absolute inset-0 flex h-full w-full items-center justify-center rounded-[2rem] bg-white p-6 [backface-visibility:hidden]">
+          <Image
+            src={getCardImagePath(card)}
+            alt=""
+            width={256}
+            height={256}
+            priority
+            unoptimized
+            className="h-full w-full object-contain"
+          />
+        </div>
 
-      {revealed && (
         <div
-          className="absolute inset-x-4 bottom-4 rounded-2xl bg-orange-500/95 px-4 py-3 text-center text-3xl font-extrabold tracking-wider text-white shadow-lg sm:text-4xl"
+          className="absolute inset-0 flex h-full w-full items-center justify-center rounded-[2rem] bg-orange-500 px-6 text-center [backface-visibility:hidden] [transform:rotateY(180deg)]"
           aria-live="polite"
         >
-          {card.name}
+          <span className="text-4xl font-extrabold tracking-wider text-white sm:text-5xl">
+            {card.name}
+          </span>
         </div>
-      )}
+      </div>
     </button>
   );
 }

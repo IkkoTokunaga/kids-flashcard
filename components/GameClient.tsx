@@ -169,6 +169,7 @@ export function GameClient({ difficulty }: Props) {
 
       <div className="flex flex-1 w-full items-center justify-center">
         <FlashCard
+          key={`${round}-${index}`}
           card={currentCard}
           revealed={phase === "revealed"}
           onReveal={reveal}
