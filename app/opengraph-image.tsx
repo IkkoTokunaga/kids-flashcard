@@ -33,10 +33,16 @@ export default function Image() {
           }}
         >
           <div style={{ fontSize: 44, fontWeight: 700 }}>こどもフラッシュカード</div>
-          <div style={{ fontSize: 30, lineHeight: 1.4 }}>
-            幼児向けのフラッシュカードアプリ
-            <br />
-            難易度を3段階から選んで、絵を見て答えよう
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              fontSize: 30,
+              lineHeight: 1.4,
+            }}
+          >
+            <span>幼児向けのフラッシュカードアプリ</span>
+            <span>難易度を3段階から選んで、絵を見て答えよう</span>
           </div>
           <div style={{ fontSize: 26, color: "#6b7280" }}>kids-flashcard.ikk-dev.jp</div>
         </div>
