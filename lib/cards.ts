@@ -8,7 +8,7 @@ export type GenreId =
   | "animals"
   | "fruits"
   | "vehicles"
-  | "weather"
+  | "nature"
   | "instruments"
   | "tools"
   | "sports"
@@ -32,7 +32,7 @@ export const GENRES: readonly Genre[] = [
   { id: "animals", label: "どうぶつ" },
   { id: "fruits", label: "くだもの・やさい" },
   { id: "vehicles", label: "のりもの" },
-  { id: "weather", label: "てんき" },
+  { id: "nature", label: "しぜん" },
   { id: "instruments", label: "がっき" },
   { id: "tools", label: "おしごとどうぐ" },
   { id: "sports", label: "スポーツ" },
@@ -70,14 +70,14 @@ export const CARDS: readonly Card[] = [
   { code: "1F6B2", name: "じてんしゃ", genre: "vehicles" },
   { code: "1F692", name: "しょうぼうしゃ", genre: "vehicles" },
 
-  // てんき
-  { code: "2600", name: "はれ", genre: "weather" },
-  { code: "2601", name: "くもり", genre: "weather" },
-  { code: "1F327", name: "あめ", genre: "weather" },
-  { code: "2603", name: "ゆきだるま", genre: "weather" },
-  { code: "26A1", name: "かみなり", genre: "weather" },
-  { code: "1F308", name: "にじ", genre: "weather" },
-  { code: "1F32A", name: "たつまき", genre: "weather" },
+  // しぜん
+  { code: "2600", name: "たいよう", genre: "nature" },
+  { code: "2601", name: "くも", genre: "nature" },
+  { code: "1F327", name: "あめ", genre: "nature" },
+  { code: "2603", name: "ゆきだるま", genre: "nature" },
+  { code: "26A1", name: "かみなり", genre: "nature" },
+  { code: "1F308", name: "にじ", genre: "nature" },
+  { code: "1F32A", name: "たつまき", genre: "nature" },
 
   // がっき
   { code: "1F3B8", name: "ぎたー", genre: "instruments" },
