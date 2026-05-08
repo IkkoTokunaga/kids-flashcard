@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
 export const alt = "こどもフラッシュカード";
 export const size = {
@@ -9,9 +11,8 @@ export const contentType = "image/png";
 export const runtime = "nodejs";
 
 export default async function Image() {
-  const imageBuffer = await fetch(new URL("./ogp-grapes.png", import.meta.url)).then(
-    (res) => res.arrayBuffer(),
-  );
+  const imagePath = path.join(process.cwd(), "app", "ogp-grapes.png");
+  const imageBuffer = await readFile(imagePath);
   const imageBase64 = Buffer.from(imageBuffer).toString("base64");
   const imageSrc = `data:image/png;base64,${imageBase64}`;
 
